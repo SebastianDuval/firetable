@@ -17,17 +17,17 @@ const useStyles = makeStyles(styles);
  * Use for cells that do not support any type of in-cell editing.
  */
 function SideDrawerEditor_(props: EditorProps<any, any>) {
-  useStyles();
+    useStyles();
 
-  const { column, rowData } = props;
-  const { sideDrawerRef } = useFiretableContext();
+    const { column, row } = props;
+    const { sideDrawerRef } = useFiretableContext();
 
-  useEffect(() => {
-    if (!sideDrawerRef?.current?.open && sideDrawerRef?.current?.setOpen)
-      sideDrawerRef?.current?.setOpen(true);
-  }, [column, rowData]);
+    useEffect(() => {
+        if (!sideDrawerRef?.current?.open && sideDrawerRef?.current?.setOpen)
+            sideDrawerRef?.current?.setOpen(true);
+    }, [column, row]);
 
-  return null;
+    return null;
 }
 
 /**
@@ -35,9 +35,9 @@ function SideDrawerEditor_(props: EditorProps<any, any>) {
  * with getInputNode and getValue methods.
  */
 class SideDrawerEditor extends React.Component<EditorProps<any, any>> {
-  getInputNode = () => null;
-  getValue = () => null;
-  render = () => <SideDrawerEditor_ {...this.props} />;
+    getInputNode = () => null;
+    getValue = () => null;
+    render = () => <SideDrawerEditor_ {...this.props} />;
 }
 
 export default SideDrawerEditor;
